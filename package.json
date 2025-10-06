@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://johnniesue.github.io/kimberly-lewis-website",
+  "homepage": "https://johnniesue.github.io/Kimberly-Lewis",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

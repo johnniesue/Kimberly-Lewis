@@ -1,440 +1,294 @@
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent } from '@/components/ui/card.jsx'
-import { Badge } from '@/components/ui/badge.jsx'
-import { Phone, Mail, MapPin, Star, Scissors, Palette, Sparkles, Instagram, Facebook } from 'lucide-react'
-import { motion } from 'framer-motion'
 import './App.css'
-import promoImage from './assets/kimberly-lewis-promo.png'
+import { Button } from './components/ui/button'
+import { Card } from './components/ui/card'
+import { Badge } from './components/ui/badge'
 
 function App() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
-  // Sample portfolio images (using the promo image as placeholder)
-  const portfolioImages = [
-    { src: promoImage, alt: "Red hair transformation", category: "Color" },
-    { src: promoImage, alt: "Blonde highlights", category: "Highlights" },
-    { src: promoImage, alt: "Luxury color treatment", category: "Color" },
-    { src: promoImage, alt: "Stylish cut", category: "Cut" },
-  ]
-
-  const services = [
-    {
-      title: "Color Transformation",
-      description: "From bold reds to stunning blondes, get hair that turns heads with our luxury color services.",
-      icon: <Palette className="w-6 h-6" />,
-      price: "Starting at $150"
-    },
-    {
-      title: "Precision Cuts",
-      description: "Expert cuts tailored to your face shape and lifestyle for effortless style.",
-      icon: <Scissors className="w-6 h-6" />,
-      price: "Starting at $85"
-    },
-    {
-      title: "Styling & Treatments",
-      description: "Professional styling and nourishing treatments for healthy, beautiful hair.",
-      icon: <Sparkles className="w-6 h-6" />,
-      price: "Starting at $65"
-    }
-  ]
-
-  const testimonials = [
-    {
-      name: "Sarah M.",
-      text: "Kimberly transformed my hair completely! The color is exactly what I dreamed of.",
-      rating: 5
-    },
-    {
-      name: "Jessica L.",
-      text: "Best stylist in Texas! Professional, talented, and such a lovely person.",
-      rating: 5
-    },
-    {
-      name: "Maria R.",
-      text: "I finally found my hair stylist for life. Kimberly is absolutely amazing!",
-      rating: 5
-    }
-  ]
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % portfolioImages.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-black">
+    <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-purple-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-gold-400 bg-clip-text text-transparent"
-            >
-              Kimberly Lewis
-            </motion.div>
-            <div className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('home')} className="text-white hover:text-purple-300 transition-colors">Home</button>
-              <button onClick={() => scrollToSection('services')} className="text-white hover:text-purple-300 transition-colors">Services</button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-white hover:text-purple-300 transition-colors">Portfolio</button>
-              <button onClick={() => scrollToSection('about')} className="text-white hover:text-purple-300 transition-colors">About</button>
-              <button onClick={() => scrollToSection('contact')} className="text-white hover:text-purple-300 transition-colors">Contact</button>
-            </div>
-            <Button className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white border-0">
-              Book Now
-            </Button>
+      <nav className="modern-card fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-8 py-4 rounded-full">
+        <div className="flex items-center space-x-8">
+          <div className="font-bold text-xl gradient-text">Kimberly Lewis</div>
+          <div className="hidden md:flex space-x-6">
+            <a href="#home" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Home</a>
+            <a href="#services" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Services</a>
+            <a href="#portfolio" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Portfolio</a>
+            <a href="#contact" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Contact</a>
           </div>
+          <Button className="modern-btn hidden sm:block">Book Now</Button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 to-black/70 z-10"></div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-purple-900/10 via-transparent to-pink-900/10"></div>
+      <section id="home" className="hero-bg min-h-screen flex items-center justify-center px-4 relative">
+        <div className="text-center max-w-4xl mx-auto fade-in-up">
+          <Badge className="mb-6 bg-white/20 text-orange-800 border-orange-300">Master Stylist & Color Specialist</Badge>
+          <h1 className="hero-title gradient-text mb-6">
+            Beautiful Hair Starts Here!
+          </h1>
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Transform your look with luxury color treatments and expert styling. 
+            Experience hair that turns heads and makes you feel absolutely gorgeous.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button className="modern-btn text-lg px-8 py-4">
+              Book Your Transformation
+            </Button>
+            <Button variant="outline" className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg">
+              View Portfolio
+            </Button>
+          </div>
         </div>
         
-        <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent">
-                Kimberly Lewis
-              </span>
-            </h1>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
-              <Badge variant="outline" className="text-purple-300 border-purple-400 bg-purple-900/30 text-lg px-4 py-2">
-                Master Stylist
-              </Badge>
-              <Badge variant="outline" className="text-purple-300 border-purple-400 bg-purple-900/30 text-lg px-4 py-2">
-                Color Specialist
-              </Badge>
-            </div>
-            <p className="text-2xl md:text-3xl text-purple-200 mb-8 font-light">
-              BEAUTIFUL HAIR STARTS HERE!
-            </p>
-            <p className="text-lg text-purple-300 mb-12 max-w-2xl mx-auto">
-              Transform your look with luxury color services and effortless style. 
-              Whether you want to make them see red or get hair that turns heads, 
-              your dream hair awaits.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-lg px-8 py-4 rounded-full border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Book Your Appointment
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => scrollToSection('portfolio')}
-                className="border-purple-400 text-purple-300 hover:bg-purple-900/30 text-lg px-8 py-4 rounded-full"
-              >
-                View Portfolio
-              </Button>
-            </div>
-          </motion.div>
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 float-animation">
+          <div className="w-20 h-20 bg-orange-300/30 rounded-full blur-xl"></div>
+        </div>
+        <div className="absolute bottom-32 right-16 float-animation" style={{animationDelay: '1s'}}>
+          <div className="w-16 h-16 bg-yellow-300/40 rounded-full blur-lg"></div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-black/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Signature Services
-            </h2>
-            <p className="text-xl text-purple-300 max-w-3xl mx-auto">
-              Experience luxury hair services tailored to your unique style and personality
+      <section id="services" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-orange-100 text-orange-800">Our Services</Badge>
+            <h2 className="section-title gradient-text">Luxury Hair Experiences</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From bold color transformations to effortless everyday styles, 
+              we create looks that celebrate your unique beauty.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="bg-gradient-to-br from-purple-900/50 to-black/50 border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 h-full">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                    <p className="text-purple-300 mb-6">{service.description}</p>
-                    <p className="text-yellow-400 font-semibold text-lg">{service.price}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <Card className="service-card group">
+              <div className="icon-container">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Looking for Luxury Color?</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Premium color treatments using the finest products. From subtle highlights 
+                to dramatic transformations, achieve the perfect shade that complements your skin tone.
+              </p>
+              <Badge className="bg-orange-100 text-orange-800">From $120</Badge>
+            </Card>
+
+            <Card className="service-card group">
+              <div className="icon-container">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Effortless Style</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Custom cuts and styling that work with your lifestyle. Wake up gorgeous 
+                every day with styles designed to enhance your natural beauty.
+              </p>
+              <Badge className="bg-orange-100 text-orange-800">From $85</Badge>
+            </Card>
+
+            <Card className="service-card group">
+              <div className="icon-container">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Hair That Turns Heads</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Statement looks and special occasion styling. From elegant updos to 
+                glamorous blowouts, get ready to be the center of attention.
+              </p>
+              <Badge className="bg-orange-100 text-orange-800">From $95</Badge>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Hair Transformations
-            </h2>
-            <p className="text-xl text-purple-300 max-w-3xl mx-auto">
-              See the stunning results that make our clients feel confident and beautiful
+      <section id="portfolio" className="py-20 px-4 bg-gradient-to-br from-orange-50 to-amber-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-orange-100 text-orange-800">Portfolio</Badge>
+            <h2 className="section-title gradient-text">Recent Transformations</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See the stunning results that keep our clients coming back
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {portfolioImages.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative group overflow-hidden rounded-lg"
-              >
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4">
-                    <Badge className="bg-purple-600 text-white">{image.category}</Badge>
-                  </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <div key={item} className="portfolio-img">
+                <div className="w-full h-full bg-gradient-to-br from-orange-200 to-amber-200 flex items-center justify-center">
+                  <span className="text-orange-600 font-medium">Before & After {item}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-black/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Client Love
-            </h2>
-            <p className="text-xl text-purple-300">
-              What our satisfied clients say about their experience
-            </p>
-          </motion.div>
+      {/* Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-orange-100 text-orange-800">Testimonials</Badge>
+            <h2 className="section-title gradient-text">What Clients Say</h2>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="bg-gradient-to-br from-purple-900/50 to-black/50 border-purple-500/30">
-                  <CardContent className="p-8">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-purple-200 mb-6 italic">"{testimonial.text}"</p>
-                    <p className="text-purple-400 font-semibold">- {testimonial.name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <Card className="testimonial-card">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white font-bold">
+                  S
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Sarah M.</h4>
+                  <div className="flex text-yellow-400">★★★★★</div>
+                </div>
+              </div>
+              <p className="text-gray-600 italic">
+                "Kimberly gave me the most amazing color! I've never felt more confident. 
+                She really knows how to make hair look absolutely stunning."
+              </p>
+            </Card>
 
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Meet Kimberly
-              </h2>
-              <p className="text-lg text-purple-300 mb-6">
-                As a Master Stylist and Color Specialist, I bring years of expertise and passion 
-                to every appointment. My mission is to help you discover your most confident, 
-                beautiful self through the art of hair transformation.
-              </p>
-              <p className="text-lg text-purple-300 mb-6">
-                Whether you're looking for luxury color with effortless style, a bold new look 
-                that turns heads, or simply want to enhance your natural beauty, I'm here to 
-                make your hair dreams a reality.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Badge variant="outline" className="text-purple-300 border-purple-400 bg-purple-900/30">
-                  Master Stylist Certified
-                </Badge>
-                <Badge variant="outline" className="text-purple-300 border-purple-400 bg-purple-900/30">
-                  Color Specialist
-                </Badge>
-                <Badge variant="outline" className="text-purple-300 border-purple-400 bg-purple-900/30">
-                  10+ Years Experience
-                </Badge>
+            <Card className="testimonial-card">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white font-bold">
+                  M
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Maria L.</h4>
+                  <div className="flex text-yellow-400">★★★★★</div>
+                </div>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="relative rounded-lg overflow-hidden">
-                <img 
-                  src={promoImage} 
-                  alt="Kimberly Lewis"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
+              <p className="text-gray-600 italic">
+                "Best stylist ever! My cut is so easy to style and looks perfect every day. 
+                Kimberly is truly talented and professional."
+              </p>
+            </Card>
+
+            <Card className="testimonial-card">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white font-bold">
+                  J
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold text-gray-900">Jessica R.</h4>
+                  <div className="flex text-yellow-400">★★★★★</div>
+                </div>
               </div>
-            </motion.div>
+              <p className="text-gray-600 italic">
+                "I get compliments on my hair everywhere I go! Kimberly created exactly 
+                the look I wanted. I'll never go anywhere else!"
+              </p>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-black/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Get In Touch
-            </h2>
-            <p className="text-xl text-purple-300">
-              Ready to transform your hair? Let's schedule your appointment today
-            </p>
-          </motion.div>
+      <section id="contact" className="contact-bg py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <Badge className="mb-4 bg-white/20 text-orange-200 border-orange-300">Get In Touch</Badge>
+          <h2 className="section-title text-white mb-8">Ready for Your Transformation?</h2>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Book your appointment today and discover why clients travel from across the city for Kimberly's expertise.
+          </p>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="bg-gradient-to-br from-purple-900/50 to-black/50 border-purple-500/30">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-purple-300 text-sm">Phone</p>
-                        <p className="text-white text-lg font-semibold">972-467-4325</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-purple-300 text-sm">Email</p>
-                        <p className="text-white text-lg font-semibold">kimberly.lewis@gmail.com</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                        <MapPin className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-purple-300 text-sm">Address</p>
-                        <p className="text-white text-lg font-semibold">
-                          4580 W. University Drive<br />
-                          Suite 114, Prosper, TX 75078
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-8 border-t border-purple-500/30">
-                    <h4 className="text-white font-semibold mb-4">Follow Me</h4>
-                    <div className="flex space-x-4">
-                      <Button variant="outline" size="icon" className="border-purple-400 text-purple-300 hover:bg-purple-900/30">
-                        <Instagram className="w-5 h-5" />
-                      </Button>
-                      <Button variant="outline" size="icon" className="border-purple-400 text-purple-300 hover:bg-purple-900/30">
-                        <Facebook className="w-5 h-5" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center justify-center"
-            >
-              <div className="text-center">
-                <h3 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h3>
-                <p className="text-purple-300 mb-8 text-lg">
-                  Book your appointment today and let's create the hair of your dreams together.
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="glass p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4">Visit the Salon</h3>
+              <div className="space-y-3 text-left">
+                <p className="flex items-center">
+                  <svg className="w-5 h-5 mr-3 text-orange-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                  123 Beauty Lane, Salon City
                 </p>
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl px-12 py-6 rounded-full border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Book Your Appointment Now
+                <p className="flex items-center">
+                  <svg className="w-5 h-5 mr-3 text-orange-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  (555) 123-HAIR
+                </p>
+                <p className="flex items-center">
+                  <svg className="w-5 h-5 mr-3 text-orange-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  Tue-Sat: 9am-7pm
+                </p>
+              </div>
+            </Card>
+
+            <Card className="glass p-8">
+              <h3 className="text-2xl font-bold mb-6 text-white">Book Online</h3>
+              <div className="space-y-4">
+                <input 
+                  type="text" 
+                  placeholder="Your Name" 
+                  className="modern-input w-full"
+                />
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  className="modern-input w-full"
+                />
+                <input 
+                  type="tel" 
+                  placeholder="Phone Number" 
+                  className="modern-input w-full"
+                />
+                <select className="modern-input w-full">
+                  <option>Select Service</option>
+                  <option>Color Treatment</option>
+                  <option>Cut & Style</option>
+                  <option>Special Occasion</option>
+                </select>
+                <Button className="modern-btn w-full py-3">
+                  Book Appointment
                 </Button>
               </div>
-            </motion.div>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-300 mb-4">Follow us on social media for daily inspiration</p>
+            <div className="flex justify-center space-x-6">
+              <a href="#" className="text-orange-300 hover:text-orange-200 transition-colors">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-orange-300 hover:text-orange-200 transition-colors">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.221.085.402-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.750-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.017.001z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-orange-300 hover:text-orange-200 transition-colors">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-8 border-t border-purple-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-purple-400">
-              © 2024 Kimberly Lewis - Master Stylist & Color Specialist. All rights reserved.
-            </p>
+      <footer className="bg-gray-900 text-white py-8 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold gradient-text mb-2">Kimberly Lewis</h3>
+            <p className="text-gray-400">Master Stylist & Color Specialist</p>
           </div>
+          <p className="text-gray-400">
+            © 2024 Kimberly Lewis Hair Studio. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

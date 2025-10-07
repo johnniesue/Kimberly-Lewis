@@ -2,95 +2,103 @@ import './App.css'
 import { Button } from './components/ui/button'
 import { Card } from './components/ui/card'
 import { Badge } from './components/ui/badge'
+import promoImage from './assets/kimberly-lewis-promo.png'
 
 function App() {
   return (
-    <div className="min-h-screen marble-bg">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav className="elegant-nav fixed top-6 left-1/2 transform -translate-x-1/2 z-50 px-8 py-4 rounded-full">
-        <div className="flex items-center space-x-8">
-          <div className="elegant-title text-2xl gold-text">Kimberly Lewis</div>
-          <div className="hidden md:flex space-x-6">
-            <a href="#home" className="text-white hover:text-yellow-400 transition-colors font-medium">Home</a>
-            <a href="#services" className="text-white hover:text-yellow-400 transition-colors font-medium">Services</a>
-            <a href="#portfolio" className="text-white hover:text-yellow-400 transition-colors font-medium">Portfolio</a>
-            <a href="#contact" className="text-white hover:text-yellow-400 transition-colors font-medium">Contact</a>
+      <nav className="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="hero-title text-2xl text-white">Kimberly Lewis</div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#home" className="text-white hover:text-red-400 transition-colors font-medium">Home</a>
+            <a href="#services" className="text-white hover:text-red-400 transition-colors font-medium">Services</a>
+            <a href="#portfolio" className="text-white hover:text-red-400 transition-colors font-medium">Portfolio</a>
+            <a href="#contact" className="text-white hover:text-red-400 transition-colors font-medium">Contact</a>
+            <Button className="primary-button">Book Now</Button>
           </div>
-          <Button className="gold-btn hidden sm:block">Book Now</Button>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="marble-hero min-h-screen flex items-center justify-center px-4 relative">
-        <div className="text-center max-w-5xl mx-auto">
-          <div className="elegant-card p-12 mb-12">
-            <h1 className="elegant-title gold-text mb-4">
+      {/* Hero Section with Video Background */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <video 
+          className="video-background"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/BeautifulhairstartshereVideo(2).mp4" type="video/mp4" />
+        </video>
+        
+        {/* Video Overlay */}
+        <div className="video-overlay"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+          <div className="fade-in-up mb-8">
+            <img 
+              src="/KimberlyLewis(1).png" 
+              alt="Kimberly Lewis - Master Stylist" 
+              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-white/20"
+            />
+          </div>
+          
+          <div className="glass-card p-8 md:p-12 mb-8 fade-in-up-delay">
+            <h1 className="hero-title mb-6">
               Kimberly Lewis
             </h1>
-            <div className="flex justify-center items-center gap-8 mb-6">
-              <span className="text-white text-lg font-medium tracking-wider uppercase">Master Stylist</span>
-              <div className="w-8 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-              <svg className="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 2L7.5 7H2l4.5 3.5L5 16l5-3.5L15 16l-1.5-5.5L18 7h-5.5z"/>
-              </svg>
-              <div className="w-8 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-              <span className="text-white text-lg font-medium tracking-wider uppercase">Color Specialist</span>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+              <Badge className="bg-red-600 text-white px-4 py-2 text-lg">Master Stylist</Badge>
+              <span className="text-white text-2xl">•</span>
+              <Badge className="bg-red-600 text-white px-4 py-2 text-lg">Color Specialist</Badge>
             </div>
           </div>
 
-          <div className="space-y-8 mb-12">
-            <h2 className="elegant-subtitle purple-text mb-4">Maybe you want to make 'em see red</h2>
-            <h2 className="elegant-subtitle text-white mb-4">Or get hair that turns heads</h2>
-            <h2 className="elegant-subtitle purple-text mb-4">Looking for luxury color with effortless style</h2>
+          <div className="space-y-6 mb-12 fade-in-up-delay">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Maybe you want to make 'em see red</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Or get hair that turns heads</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Looking for luxury color with effortless style</h2>
           </div>
 
-          <h3 className="elegant-title gold-text mb-8">Beautiful Hair Starts Here!</h3>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button className="gold-btn text-lg px-10 py-4">
+          <h3 className="section-title text-white mb-12 fade-in-up-delay">Beautiful Hair Starts Here!</h3>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in-up-delay">
+            <Button className="primary-button text-lg px-8 py-4">
               Book Your Transformation
             </Button>
-            <Button className="purple-btn text-lg px-10 py-4">
+            <Button className="secondary-button text-lg px-8 py-4">
               View Portfolio
             </Button>
           </div>
         </div>
-        
-        {/* Elegant floating elements */}
-        <div className="absolute top-20 left-10 animate-pulse">
-          <div className="w-24 h-24 bg-purple-500/20 rounded-full blur-2xl"></div>
-        </div>
-        <div className="absolute bottom-32 right-16 animate-pulse" style={{ animationDelay: '2s' }}>
-          <div className="w-20 h-20 bg-yellow-400/20 rounded-full blur-xl"></div>
-        </div>
-        <div className="absolute top-1/2 left-20 animate-pulse" style={{ animationDelay: '4s' }}>
-          <div className="w-16 h-16 bg-purple-400/20 rounded-full blur-lg"></div>
-        </div>
       </section>      {/* Services Section */}
-      <section id="services" className="py-24 px-4">
+      <section id="services" className="py-24 px-6 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="elegant-title gold-text mb-6">Signature Services</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              From bold color transformations to effortless everyday styles, 
+            <h2 className="section-title text-white mb-6">Signature Services</h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              From bold color transformations to effortless everyday styles,
               we create looks that celebrate your unique beauty and turn heads everywhere you go.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-10">
-            <Card className="marble-card p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-purple-900" fill="currentColor" viewBox="0 0 20 20">
+            <div className="service-card text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold gold-text mb-4">Luxury Color Transformations</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Color Transformation</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Premium color treatments using the finest products. From subtle highlights 
-                to dramatic transformations, achieve the perfect shade that complements your skin tone.
+                From bold reds to stunning blondes, get hair that turns heads with our luxury color services.
               </p>
-              <div className="text-yellow-400 font-semibold text-lg">Starting at $150</div>
-            </Card>
+              <div className="text-red-400 font-semibold text-lg">Starting at $150</div>
+            </div>
 
             <Card className="marble-card p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -100,7 +108,7 @@ function App() {
               </div>
               <h3 className="text-2xl font-bold gold-text mb-4">Effortless Style</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Custom cuts and styling that work with your lifestyle. Wake up gorgeous 
+                Custom cuts and styling that work with your lifestyle. Wake up gorgeous
                 every day with styles designed to enhance your natural beauty.
               </p>
               <div className="text-yellow-400 font-semibold text-lg">Starting at $85</div>
@@ -114,7 +122,7 @@ function App() {
               </div>
               <h3 className="text-2xl font-bold gold-text mb-4">Hair That Turns Heads</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Statement looks and special occasion styling. From elegant updos to 
+                Statement looks and special occasion styling. From elegant updos to
                 glamorous blowouts, get ready to be the center of attention.
               </p>
               <div className="text-yellow-400 font-semibold text-lg">Starting at $95</div>

@@ -117,13 +117,6 @@ function App() {
       </section>      <footer>
         <p>&copy; 2025 Kimberly Lewis Hair Studio</p>
       </footer>
-
-      {/* Floating Book Now Button */}
-      <div className="floating-book-now">
-        <a href="#booking" className="floating-btn">
-          📅 Book Now
-        </a>
-      </div>
     </div>
   )
 }

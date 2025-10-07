@@ -33,14 +33,10 @@ function App() {
       {/* About Section */}
       <section className="about">
         <div className="about-content">
-          <div className="about-text">
-            <h2>Meet Kimberly</h2>
-            <p>With over a decade of experience in luxury hair styling and color artistry, Kimberly brings precision, passion, and personal care to every appointment.</p>
-            <p>Specializing in color transformations and effortless styling, she creates looks that enhance your natural beauty and turn heads wherever you go.</p>
-          </div>
-          <div className="about-image">
-            <img src="KimberlyLewis(1).png" alt="Kimberly Lewis styling beautiful blonde hair" />
-          </div>
+          <h2>Meet Kimberly</h2>
+          <p>With over a decade of experience in luxury hair styling and color artistry, Kimberly brings precision, passion, and personal care to every appointment.</p>
+          <p>Specializing in color transformations and effortless styling, she creates looks that enhance your natural beauty and turn heads wherever you go.</p>
+          <p>Every client receives a personalized consultation to ensure their new look perfectly complements their lifestyle, face shape, and personal style preferences.</p>
         </div>
       </section>
 

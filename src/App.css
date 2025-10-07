@@ -93,7 +93,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 2rem;
   border-radius: 8px;
   max-width: 90%;
@@ -130,18 +130,12 @@ body {
 .about {
   padding: 4rem 2rem;
   background: var(--warm-beige);
+  text-align: center;
 }
 
 .about-content {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.about-text {
-  flex: 1;
 }
 
 .about h2 {
@@ -155,17 +149,7 @@ body {
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--soft-brown);
-  margin-bottom: 1rem;
-}
-
-.about-image {
-  flex: 1;
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
 .hero-content {
@@ -1094,13 +1078,8 @@ h6 {
   opacity: 0.9;
 }
 
-/* Responsive styles for photos */
+/* Responsive styles */
 @media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -1112,6 +1091,14 @@ h6 {
   }
   
   .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .about {
+    padding: 3rem 1rem;
+  }
+  
+  .about h2 {
     font-size: 2rem;
   }
 }.elegant-input::placeholder {

@@ -21,7 +21,7 @@ function App() {
       {/* Hero Section with Video */}
       <header className="hero">
         <video autoPlay muted loop className="hero-video">
-          <source src="/BeautifulhairstartshereVideo(2).mp4" type="video/mp4" />
+          <source src="BeautifulhairstartshereVideo(2).mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay">
           <h1>Beautiful Hair Starts Here</h1>
@@ -39,7 +39,7 @@ function App() {
             <p>Specializing in color transformations and effortless styling, she creates looks that enhance your natural beauty and turn heads wherever you go.</p>
           </div>
           <div className="about-image">
-            <img src="/KimberlyLewis(1).png" alt="Kimberly Lewis styling beautiful blonde hair" />
+            <img src="KimberlyLewis(1).png" alt="Kimberly Lewis styling beautiful blonde hair" />
           </div>
         </div>
       </section>
@@ -69,28 +69,28 @@ function App() {
         <p>See the stunning results that keep clients coming back</p>
         <div className="portfolio-grid">
           <div className="portfolio-item">
-            <img src="/KimberlyLewis(1).png" alt="Beautiful blonde balayage transformation" />
+            <img src="KimberlyLewis(1).png" alt="Beautiful blonde balayage transformation" />
             <div className="portfolio-overlay">
               <h3>Blonde Balayage</h3>
               <p>Color & Cut Transformation</p>
             </div>
           </div>
           <div className="portfolio-item">
-            <img src="/KimberlyLewis(1).png" alt="Precision cut and style" />
+            <img src="KimberlyLewis(1).png" alt="Precision cut and style" />
             <div className="portfolio-overlay">
               <h3>Precision Cut</h3>
               <p>Modern Bob with layers</p>
             </div>
           </div>
           <div className="portfolio-item">
-            <img src="/KimberlyLewis(1).png" alt="Red color transformation" />
+            <img src="KimberlyLewis(1).png" alt="Red color transformation" />
             <div className="portfolio-overlay">
               <h3>Red Transformation</h3>
               <p>Bold color change</p>
             </div>
           </div>
           <div className="portfolio-item">
-            <img src="/KimberlyLewis(1).png" alt="Highlights and lowlights" />
+            <img src="KimberlyLewis(1).png" alt="Highlights and lowlights" />
             <div className="portfolio-overlay">
               <h3>Dimensional Color</h3>
               <p>Highlights & Lowlights</p>

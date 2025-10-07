@@ -32,8 +32,16 @@ function App() {
 
       {/* About Section */}
       <section className="about">
-        <h2>Meet Kimberly</h2>
-        <p>With over a decade of experience in luxury hair styling and color artistry, Kimberly brings precision, passion, and personal care to every appointment.</p>
+        <div className="about-content">
+          <div className="about-text">
+            <h2>Meet Kimberly</h2>
+            <p>With over a decade of experience in luxury hair styling and color artistry, Kimberly brings precision, passion, and personal care to every appointment.</p>
+            <p>Specializing in color transformations and effortless styling, she creates looks that enhance your natural beauty and turn heads wherever you go.</p>
+          </div>
+          <div className="about-image">
+            <img src="/KimberlyLewis(1).png" alt="Kimberly Lewis styling beautiful blonde hair" />
+          </div>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -51,6 +59,42 @@ function App() {
           <div className="service-card">
             <h3>Treatments</h3>
             <p>Deep conditioning, keratin, scalp care.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="portfolio">
+        <h2>Hair Transformations</h2>
+        <p>See the stunning results that keep clients coming back</p>
+        <div className="portfolio-grid">
+          <div className="portfolio-item">
+            <img src="/KimberlyLewis(1).png" alt="Beautiful blonde balayage transformation" />
+            <div className="portfolio-overlay">
+              <h3>Blonde Balayage</h3>
+              <p>Color & Cut Transformation</p>
+            </div>
+          </div>
+          <div className="portfolio-item">
+            <img src="/KimberlyLewis(1).png" alt="Precision cut and style" />
+            <div className="portfolio-overlay">
+              <h3>Precision Cut</h3>
+              <p>Modern Bob with layers</p>
+            </div>
+          </div>
+          <div className="portfolio-item">
+            <img src="/KimberlyLewis(1).png" alt="Red color transformation" />
+            <div className="portfolio-overlay">
+              <h3>Red Transformation</h3>
+              <p>Bold color change</p>
+            </div>
+          </div>
+          <div className="portfolio-item">
+            <img src="/KimberlyLewis(1).png" alt="Highlights and lowlights" />
+            <div className="portfolio-overlay">
+              <h3>Dimensional Color</h3>
+              <p>Highlights & Lowlights</p>
+            </div>
           </div>
         </div>
       </section>
